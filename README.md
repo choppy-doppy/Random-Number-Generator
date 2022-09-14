@@ -1,5 +1,7 @@
 # Random-Number-Generator
 
-Just a simple random number generator written in rust
+Just a simple random number generator between 1 and user input written in rust
 
-using github to store my progress as it is better than google drive
+<h4> todo </h4>
+
+- [ ] add some sort of graceful shutdown or way to exit without killing the process
