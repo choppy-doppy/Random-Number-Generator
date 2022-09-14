@@ -2,26 +2,23 @@ use std::io;
 use rand::Rng;
 
 fn main() {
-    println!("Pick a number");
+    println!("type a number to generate a random number between 1 and x");
 
-    /*
-    this variable is marked with 'mut' which means it is mutable and cannot be changed later in the code
-    the variable made will store the value from your input
-     */
+    loop {
+        let mut input = String::new();
 
-    let number = String::new();
+        io::stdin()
+            .read_line(&mut input)
+            .expect("failed to read line");
 
-    let number: u128 = number.trim().parse().expect("Type a number");
+        let input: i128 = match input.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue
+        };
 
-    let rnum = rand::thread_rng().gen_range(1..={number});
+        let rnum = rand::thread_rng().gen_range(1..={input});
 
-    // this block reads the input from the end user, the .expect() line is there to handle an error properly
-    io::stdin()
-        .read_line(&mut rnum)
-        .expect("Failed to read line");
-
-    println!("{number}");
-
-    println!("random number: {rnum}");
+        println!("{rnum}");
+    }
 }
 
